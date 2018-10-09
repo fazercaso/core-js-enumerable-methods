@@ -22,7 +22,7 @@ end
 *Рисунок 1*. Итерация через массив номеров телефона, и проведение операции с каждым номером
 
 
-Итерация массива является одной из общих задач при работе с коллекцией. Какие ещё задачи должны выполняться? Часто нам требуется вытащить один или несколько предметов из коллекции. Нам также может понадобиться найти определенный элемент, например, телефонный номер, заканчивающийся на 8916. Или мы можем выбрать подмножество элементов -  например, все номера телефонов из кода города 419.
+Итерация массива является одной из общих задач при работе с коллекцией. Какие ещё задачи должны выполняться? Часто нам требуется вытащить один или несколько предметов из массиве. Нам также может понадобиться найти определенный элемент, например, телефонный номер, заканчивающийся на 8916. Или мы можем выбрать подмножество элементов -  например, все номера телефонов из кода города 419.
 
 
 ### Перечисляемые методы
@@ -33,7 +33,7 @@ end
 
 
 ## Releases
-### Release 0:  Поиск элемента в коллекции объектов
+### Release 0:  Поиск элемента в массиве объектов
 As mentioned in the *Summary*, one common task when working with a collection is to find a particular item: find the phone number ending in 8916, find the job applicant with the id 353687559, etc ...  To help us perform the task of finding an item in a collection, Ruby's `Enumerable` module provides the [`#find`][javascript find] method, which we're going to use.  We can see examples of using `#find` in Figure 2.
 
 ```javascript (нет в js)
@@ -53,12 +53,13 @@ In the file `find.js` we have a couple methods that find an element in an array.
 ```
 
 
-### Release 1:  Фильтрация коллекции объектов
-Sometimes we want to find one specific item in a collection.  At other times we want to find all the items that meet a condition.  Or, that do not meet a condition.  For example, we might want to find all the phone numbers from area code 419, find all the job applicants who've not completed the entire application, etc.
+### Release 1: Фильтрация массиве объектов
 
-This is often referred to as filtering.  We create a filter that describes how we'll decide which elements were interested in.  Then we run each item in the collection through the filter.  Once we've gone through all of the items, we return a new collection containing the items that "passed through the filter".
+Иногда мы хотим найти один конкретный элемент в массиве. В других случаях мы хотим найти все предметы, соответствующие или не соответствующие условиям. Например, мы можем найти все номера телефонов из кода города 419, найти всех кандидатов на работу, которые не заполнили заявку целиком, и т. д.
 
-[`#select`][javascript select] and [`#reject`][javascript reject] are two Ruby methods that help us to filter collections.  When using either of these methods, we set up our filter in the block passed to the method.  `#select` returns a new array containing the items for which the filter returned a truthy value.  `#reject` does the opposite.  It returns a new array containing the items for which the filter returned a falsey value.  See Figure 3 for examples.
+Этот процесс часто называют фильтрацией. Для начала мы создаем фильтр, который описывает, как мы будем принимать решение по поводу того, какие элементы вызывают у нас интерес. Затем мы пропускаем каждый элемент в массиве через фильтр. Когда мы пройдем через все элементы, мы получим новый массив, который состоит из прошедших через фильтр элементов.
+
+`.filter` - это метод JavaScript, который помогает нам фильтровать массив. `.filter` возвращает новый массив, содержащий элементы, для которых фильтр возвратил истинное значение. См. Рис. 3 в качестве примера.
 
 ```javascript
 numbers = [1, 5, 3, 8, 2]
@@ -68,12 +69,12 @@ numbers.filter(function(number){ return number < 5 })
 numbers.filter(function(number){ return number % 2 == 0 })
 # => [8, 2]
 ```
-*Figure 3*. Filtering an array.
+* Рисунок 3 *. Фильтрация массива.
 
-In the file `filter.js` we have a few methods that filter an array.  The methods use `.forEach` to iterate.  Refactor the methods to use either `#select` or `#reject`.  Tests are provided in the file `spec/filter_spec.js`.
+In the file `filter.js` we have a few methods that filter an array.  The methods use `.forEach` to iterate.  Refactor the methods to use either `#select` or `.filter`.  Tests are provided in the file `spec/filter_spec.js`.
 
 
-### Release 2:  Преобразование элементов в коллекцию
+### Release 2:  Преобразование элементов в массив
 Another common task is transforming items into something based on the items.  If we have an array of phone numbers, we might want to transform each of the numbers into its area code.  If we have a list of social security numbers, we might want to transform each of them into its last four digits.
 
 JavaScript provides the [`#map`][javascript map] method to help with this task.  The method returns a new array.  The new array contains the transformed version of each of the original items.  The block passed to the method describes how to perform the transformation.  See Figure 4 for examples.
@@ -95,7 +96,7 @@ numbers.map(function(number){ Math.sqrt(number) })
 In the file `transform.js` we have a few methods that transform items in an array.  The methods use `.forEach` to iterate.  Refactor the methods to use `,map`.  Tests are provided in the file `spec/transform_spec.js`.
 
 
-### Release 3:  Агрегатирование элементов в коллекции
+### Release 3:  Агрегатирование элементов в массиве
 The final task we'll explore is aggregating the items in a collection.  In other words, using the items to build an object or value.  If we had an array of prices, we could aggregate them into their total.  If we had an array of strings, we could aggregate them into one large string.  
 
 One aggregating method that JavaScript provides is [`.reduce`][javascript reduce].  There are different ways to call `.reduce`.  One way is to pass in the starting point for the object that will be built up.  So, if we're going to sum an array of numbers, we might pass in zero as the starting value.  This value is often referred to as the *memo*.  We also pass a block.  Our block will need to take two arguments.  When the block is run for each item in the collection, both the item and the memo are passed to the block.  See Figure 5 for examples.
