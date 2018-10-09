@@ -1,4 +1,4 @@
-# Отработка JavaScript: Методы по работе с массивом
+# Отработка JavaScript: Методы по работе с массивами
 
 ## Введение
 
@@ -17,7 +17,6 @@ let phoneNumbers = ["+14195558916", "+14195557849", "+14195559789"]
 phoneNumbers.forEach(function(number) {
   sendText(number, "You will do better in Toledo")
 }
-end
 ```
 *Рисунок 1*. Итерация через массив номеров телефона, и проведение операции с каждым номером
 
@@ -25,7 +24,7 @@ end
 Итерация массива является одной из общих задач при работе с коллекцией. Какие ещё задачи должны выполняться? Часто нам требуется вытащить один или несколько предметов из массиве. Нам также может понадобиться найти определенный элемент, например, телефонный номер, заканчивающийся на 8916. Или мы можем выбрать подмножество элементов -  например, все номера телефонов из кода города 419.
 
 
-### Перечисляемые методы
+### Перебирающие методы
 
 Работа с коллекциями объектов настолько распространена, что JavaScript и многие другие языки предоставляют методы, позволяющие сделать эти задачи более удобными. Общий метод повторения - `.forEach`, который мы используем, когда хотим сделать какое-то действие с каждым элементом массива. Чтобы использовать `.forEach`, мы вызываем метод в массиве и передаем туда блок, который определяет, что мы хотим сделать для каждого элемента массива. Рисунок 1 является примером использования `.forEach`.
 
@@ -33,51 +32,52 @@ end
 
 
 ## Releases
-### Release 0:  Поиск элемента в массиве объектов
-As mentioned in the *Summary*, one common task when working with a collection is to find a particular item: find the phone number ending in 8916, find the job applicant with the id 353687559, etc ...  To help us perform the task of finding an item in a collection, Ruby's `Enumerable` module provides the [`#find`][javascript find] method, which we're going to use.  We can see examples of using `#find` in Figure 2.
+### Release 0:  Поиск элемента в массиве
+Как было упомянуто в Введении, одной из задач при работе с массивом является
+поиск определенного элемента: например, найти номер телефона, заканчивающийся на
+8916, найти кандидата на работу с идентификатором 353687559 и т. д. Чтобы помочь нам
+выполнить задачу для поиска элемента в массиве, есть метод [`.find`], который мы будем
+использовать. Примеры использования `.find` можно увидеть на Рисунке 2.
 
-```javascript (нет в js)
+
+```javascript
 numbers = [1, 2, 4, 5, 3, 9]
 
-numbers.find { |number| number > 4 }
-# => 5
-nubmers.find { |number| number.even? }
-# => 2
+numbers.find(function(number){ return number > 4 })
+=> 5
+nubmers.find(function(number){ return number % 2 == 0 })
+=> 2
 ```
 Рисунок 2. Поиск элемента в массиве.
 
-In the file `find.js` we have a couple methods that find an element in an array.  The methods use `.forEach` to iterate.  Refactor the methods to use `#find` instead of `.forEach`.  Tests are provided in the file `spec/find_spec.js`.  We can use these tests to ensure that we don't break our code while refactoring.  Run:
+В файле `find.js` у нас есть несколько методов, которые находят элемент в массиве. Проведите рефакторинг методов, чтобы использовать `find`.
 
-```
- spec/find_spec.js
-```
+### Release 1: Фильтрация массива
 
+Иногда мы хотим найти один конкретный элемент в массиве. Например, мы хотим найти все предметы, соответствующие или не соответствующие условиям. Мы можем найти все номера телефонов из кода города 419, найти всех кандидатов на работу, которые не заполнили заявку целиком, и т. д.
 
-### Release 1: Фильтрация массиве объектов
+Этот процесс часто называют фильтрацией. Для начала мы создаем фильтр, который описывает, как мы будем принимать решение по поводу того, какие элементы нас интересуют. Затем мы пропускаем каждый элемент в массиве через фильтр. Когда мы пройдем все элементы, мы получим новый массив, который состоит из прошедших через фильтр элементов.
 
-Иногда мы хотим найти один конкретный элемент в массиве. В других случаях мы хотим найти все предметы, соответствующие или не соответствующие условиям. Например, мы можем найти все номера телефонов из кода города 419, найти всех кандидатов на работу, которые не заполнили заявку целиком, и т. д.
-
-Этот процесс часто называют фильтрацией. Для начала мы создаем фильтр, который описывает, как мы будем принимать решение по поводу того, какие элементы вызывают у нас интерес. Затем мы пропускаем каждый элемент в массиве через фильтр. Когда мы пройдем через все элементы, мы получим новый массив, который состоит из прошедших через фильтр элементов.
-
-`.filter` - это метод JavaScript, который помогает нам фильтровать массив. `.filter` возвращает новый массив, содержащий элементы, для которых фильтр возвратил истинное значение. См. Рис. 3 в качестве примера.
+`.filter` - это метод JavaScript, который помогает нам фильтровать массив. `.filter` возвращает новый массив, содержащий элементы, для которых фильтр вернул истинное значение. См. Рис. 3 в качестве примера.
 
 ```javascript
 numbers = [1, 5, 3, 8, 2]
 
 numbers.filter(function(number){ return number < 5 })
-# => [1, 3, 2]
+=> [1, 3, 2]
 numbers.filter(function(number){ return number % 2 == 0 })
-# => [8, 2]
+=> [8, 2]
 ```
 * Рисунок 3 *. Фильтрация массива.
 
-In the file `filter.js` we have a few methods that filter an array.  The methods use `.forEach` to iterate.  Refactor the methods to use either `#select` or `.filter`.  Tests are provided in the file `spec/filter_spec.js`.
+В файле `filter.js` у нас есть метод, который фильтрует массив. Выполните рефакторинг методов используя `filter`.
 
+### Release 2:  Преобразование элементов массива
 
-### Release 2:  Преобразование элементов в массив
-Another common task is transforming items into something based on the items.  If we have an array of phone numbers, we might want to transform each of the numbers into its area code.  If we have a list of social security numbers, we might want to transform each of them into its last four digits.
+Другой общей задачей является преобразование элементов массива. Если у нас есть массив телефонных номеров, то мы можем преобразовать каждый из них в их код области/региона. Если у нас есть список номеров социального обеспечения, то мы можем преобразовать каждый из них в их последние четыре цифры.
 
-JavaScript provides the [`#map`][javascript map] method to help with this task.  The method returns a new array.  The new array contains the transformed version of each of the original items.  The block passed to the method describes how to perform the transformation.  See Figure 4 for examples.
+Для решения этой задачи есть метод `.map`. Метод возвращает новый массив. Новый массив содержит преобразованную версию каждого из исходных элементов. Блок, переданный методу, описывает, как выполнить преобразование. См. Рис. 4 в качестве примера.
+
 
 ```javascript
 numbers = [1, 4, 7, 3, 9]
@@ -93,13 +93,15 @@ numbers.map(function(number){ Math.sqrt(number) })
 ```
 Рисунок 4. Отображение массива.
 
-In the file `transform.js` we have a few methods that transform items in an array.  The methods use `.forEach` to iterate.  Refactor the methods to use `,map`.  Tests are provided in the file `spec/transform_spec.js`.
+В файле `transform.js` содержится несколько методов, которые преобразуют элементы в массив. Выполните рефакторинг методов использования `.map`.
 
 
 ### Release 3:  Агрегатирование элементов в массиве
-The final task we'll explore is aggregating the items in a collection.  In other words, using the items to build an object or value.  If we had an array of prices, we could aggregate them into their total.  If we had an array of strings, we could aggregate them into one large string.  
 
-One aggregating method that JavaScript provides is [`.reduce`][javascript reduce].  There are different ways to call `.reduce`.  One way is to pass in the starting point for the object that will be built up.  So, if we're going to sum an array of numbers, we might pass in zero as the starting value.  This value is often referred to as the *memo*.  We also pass a block.  Our block will need to take two arguments.  When the block is run for each item in the collection, both the item and the memo are passed to the block.  See Figure 5 for examples.
+Еще задача, которую мы рассмотрим - объединение элементов массива. Другими словами, использование элементов для построения объекта или значения. Если бы у нас был, например, массив цен, то мы могли бы объединить их в их общую сумму. Аналогичным образом - если бы у нас был массив строк, то мы могли бы объединить их в одну большую строку.
+
+Один метод агрегирования, который предоставляет JavaScript - `.reduce`. Существуют разные способы вызова `.reduce`. Один из способов - передача начальной точки для объекта, который будет создан. Итак, если мы собираемся суммировать массив чисел, то мы можем взять ноль в качестве стартового значения. Мы также передаем функцию-callback. Она должна будет принять два аргумента (`previousResult, item`). См. Рис. 5 в качестве примера.
+
 
 ```javascript
 numbers = [1, 3, 6, 3, 9]
@@ -115,24 +117,18 @@ numbers.reduce(function(counts, number) {
 	return counts;
 }, {})
 ```
-*Figure 5.*  Aggregating values in an array.
+*Рисунок 5.* Агрегация значений в массиве.
 
-In the file `aggregate.js` we have a few methods that aggregate the values in an array.  The methods use `.forEach` to iterate.  Refactor the methods to use `.reduce`.  Tests are provided in the file `spec/aggregate_spec.js`.
-
-
-### Release 4: Рефакторинг (реорганизация)  для использования перечисляемых методов
-
-В предыдущих выпусках мы изучили некоторые распространенные перечисляемые методы и были вынуждены использовать их при рефакторинге (реорганизации). Мы будем продолжать выполнение рефакторинга кода для того, чтобы смочь использовать эти методы. Но для начала нам нужно выяснить, какой метод нам стоит использовать.
-
-Как мы это выясним? Нам нужно будет прочитать про каждый из методов, для которого мы проводим рефакторинг (реорганизацию), чтобы выяснить, что же он делает. Как только мы поймем работу конкретного метода, мы должны суметь увидеть, является ли этот метод фильтрующим, преобразующим или агрегирующим. Когда мы читаем эти методы, то мы можем видеть паттерны в шаблонах кода, которые указывают на то, к какому типу мы можем отнести данный метод.
-
-Методы, которые мы будем использовать, находятся в файле `working_with_enumerables.js`. Методы используют `.forEach` для итерации. Проведите рефакторинг методов использования перечисляемых методов, которые мы изучили в процессе выполнения этой задачи. Тесты можно найти в файле `spec/working_with_enumerables_spec.js`.
+В файле `aggregate.js` мы располагаем несколькими методами, которые объединяют значения в массиве. Проведите рефакторинг (реорганизацию) методов использования `.reduce`.
 
 
-## Выводы
-Мы будем работать с такими перечисляемыми объектами, как массивы. Время, затраченное на ознакомление с методами в модуле «Методы по работе с массивом», безусловно, будет хорошей инвестицией в Ваше будущее. Если у нас не будет возникать проблем при использовании метода ` .forEach`, то будет легко использовать его в любое время, когда мы будем работать с коллекцией объектов. 
-По мере практики, использование перечисляемых методов станет для вас легко и естественно. 
+### Release 4: Рефакторинг  для использования перебирающих методов
+
+В предыдущих релизах мы изучили некоторые распространенные перечисляемые методы и были вынуждены использовать их при рефакторинге. Мы будем продолжать рефакторинг кода, чтобы лучше их освоить. Но для начала нам нужно выяснить, какой метод нам стоит использовать.
+
+Методы, которые мы будем использовать, находятся в файле `working_with_enumerables.js`. Методы используют `.forEach` для итерации. Проведите рефакторинг методов, используя `map/reduce/filter/find/every/some`.
+
 
 [MDN Array]:(https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
-
+[Перебирающие методы]:(https://learn.javascript.ru/array-iteration)
 
