@@ -12,7 +12,7 @@ function sendText(number, message) {
 }
 
 
-phoneNumbers = ["+14195558916", "+14195557849", "+14195559789"]
+let phoneNumbers = ["+14195558916", "+14195557849", "+14195559789"]
 
 phoneNumbers.forEach(function(number) {
   sendText(number, "You will do better in Toledo")
