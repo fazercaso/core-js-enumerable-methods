@@ -1,9 +1,10 @@
-# Java Drill: Enumerable Methods
+# Отработка JavaScript: Перечисляемые методы
 
-## Summary
-When programming we often work with collections of objects: an array of phone numbers, a list of names, a set of GPS coordinates, etc.
+## Резюме
 
-In working with collections, some tasks are very common.  For example, we often iterate over an array, doing something with each item.  For example, given an array of phone numbers, we might send a text message to each phone number (see Figure 1).
+Во время программирования мы часто работаем с коллекциями объектов: массивом телефонных номеров, списком имен, набором GPS-координат и т. д.
+
+При работе с коллекциями объектов некоторые задачи являются очень распространенными. Например, мы часто перебираем массив, выполняя какие-нибудь операции с каждым элементом. Например, работая с массивом телефонных номеров, мы можем отправить текстовое сообщение на каждый номер телефона (см. Рис. 1).
 
 ```javascript
 function sendText(number, message) {
@@ -18,10 +19,10 @@ phoneNumbers.forEach(function(number) {
 }
 end
 ```
-*Figure 1*.  Iterating over an array of phone numbers, passing each number to a method.
+*Рисунок 1*. Итерация через массив номеров телефона, и проведение операции с каждым номером
 
 
-Iterating over an array is one common task when working with a collection.  What are some others?  We often need to pull one or more items out of the collection.  We might need to find a particular item like the phone number ending in 8916.  Or, we might want to select a subset of the items, like all the phone numbers from area code 419.
+Итерация массива является одной из общих задач при работе с коллекцией. Какие ещё задачи должны выполняться? Часто нам требуется вытащить один или несколько предметов из коллекции. Нам также может понадобиться найти определенный элемент, например, телефонный номер, заканчивающийся на 8916. Или мы можем выбрать подмножество элементов -  например, все номера телефонов из кода города 419.
 
 
 ### Enumerable Methods
