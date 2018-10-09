@@ -1,4 +1,4 @@
-# Отработка JavaScript: Перечисляемые методы
+# Отработка JavaScript: Методы по работе с массивом
 
 ## Резюме
 
@@ -43,12 +43,12 @@ numbers.find { |number| number > 4 }
 nubmers.find { |number| number.even? }
 # => 2
 ```
-*Figure 2*.  Finding an item in an array.
+Рисунок 2. Поиск элемента в массиве.
 
-In the file `find.rb` we have a couple methods that find an element in an array.  The methods use `#each` to iterate.  Refactor the methods to use `#find` instead of `#each`.  Tests are provided in the file `spec/find_spec.rb`.  We can use these tests to ensure that we don't break our code while refactoring.  Run:
+In the file `find.js` we have a couple methods that find an element in an array.  The methods use `#each` to iterate.  Refactor the methods to use `#find` instead of `#each`.  Tests are provided in the file `spec/find_spec.js`.  We can use these tests to ensure that we don't break our code while refactoring.  Run:
 
 ```
-$ rspec spec/find_spec.rb
+$ rspec spec/find_spec.js
 ```
 
 
@@ -69,7 +69,7 @@ numbers.filter(function(number){ return number % 2 == 0 })
 ```
 *Figure 3*. Filtering an array.
 
-In the file `filter.rb` we have a few methods that filter an array.  The methods use `#each` to iterate.  Refactor the methods to use either `#select` or `#reject`.  Tests are provided in the file `spec/filter_spec.rb`.
+In the file `filter.js` we have a few methods that filter an array.  The methods use `#each` to iterate.  Refactor the methods to use either `#select` or `#reject`.  Tests are provided in the file `spec/filter_spec.js`.
 
 
 ### Release 2:  Transforming Items in a Collection
@@ -91,7 +91,7 @@ numbers.map(function(number){ Math.sqrt(number) })
 ```
 *Figure 4*.  Mapping an array.
 
-In the file `transform.rb` we have a few methods that transform items in an array.  The methods use `#each` to iterate.  Refactor the methods to use `#map`.  Tests are provided in the file `spec/transform_spec.rb`.
+In the file `transform.js` we have a few methods that transform items in an array.  The methods use `#each` to iterate.  Refactor the methods to use `#map`.  Tests are provided in the file `spec/transform_spec.js`.
 
 
 ### Release 3:  Aggregating the Items in a Collection
@@ -116,7 +116,7 @@ numbers.reduce(function(counts, number) {
 ```
 *Figure 5.*  Aggregating values in an array.
 
-In the file `aggregate.rb` we have a few methods that aggregate the values in an array.  The methods use `#each` to iterate.  Refactor the methods to use `#reduce`.  Tests are provided in the file `spec/aggregate_spec.rb`.
+In the file `aggregate.rb` we have a few methods that aggregate the values in an array.  The methods use `#each` to iterate.  Refactor the methods to use `#reduce`.  Tests are provided in the file `spec/aggregate_spec.js`.
 
 
 ### Release 4:  Refactor to Use Enumerable Methods
@@ -124,18 +124,13 @@ In the previous releases we've explored some common enumerable methods and have 
 
 How do we figure out which method to use?  We'll have to read each of the methods we're refactoring to figure out what it's doing.  Once we understand the method, we should be able to see whether the method is filtering, transforming, or aggregating.  As we read the methods, we might see patterns in the code—patterns that indicate that the method is filtering, transforming, or aggregating.
 
-The methods we'll refactor are in the file `working_with_enumerables.rb`.  The methods use `#each` to iterate.  Refactor the methods to use the enumerable methods we've explored in this challenge.  Tests are provided in the file `spec/working_with_enumerables_spec.rb`.
+The methods we'll refactor are in the file `working_with_enumerables.js`.  The methods use `#each` to iterate.  Refactor the methods to use the enumerable methods we've explored in this challenge.  Tests are provided in the file `spec/working_with_enumerables_spec.js`.
 
 
-## Conclusion
-We'll be working with enumerable objects like arrays throughout Dev Bootcamp.  Investing the time to familiarize ourselves with the methods in the `Enumerable` module will certainly pay dividends down the road.  If we're comfortable using the `#each` method, it will be easy for us to reach for it anytime we're working with a collection.  Sometimes it is appropriate to use `#each`, but as we're learning to work with collections we should read through the enumerable methods to see if maybe Ruby provides a more appropriate method.  With practice, using enumerable methods will become second nature.
+## Выводы
+Мы будем работать с такими перечисляемыми объектами, как массивы. Время, затраченное на ознакомление с методами в модуле «Методы по работе с массивом», безусловно, будет хорошей инвестицией в Ваше будущее. Если у нас не будет возникать проблем при использовании метода ` .forEach`, то будет легко использовать его в любое время, когда мы будем работать с коллекцией объектов. 
+По мере практики, использование перечисляемых методов станет для вас легко и естественно. 
 
+[MDN Array]:(https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 
-[ruby array]: http://ruby-doc.org/core-2.2.0/Array.html
-[ruby enumerable]: http://ruby-doc.org/core-2.2.0/Enumerable.html
-[ruby find]: http://ruby-doc.org/core-2.2.0/Enumerable.html#method-i-find
-[ruby map]: http://ruby-doc.org/core-2.2.0/Array.html#method-i-map
-[ruby reduce]: http://ruby-doc.org/core-2.2.0/Enumerable.html#method-i-reduce
-[ruby reject]: http://ruby-doc.org/core-2.2.0/Array.html#method-i-reject
-[ruby select]: http://ruby-doc.org/core-2.2.0/Array.html#method-i-select
 
