@@ -1,23 +1,7 @@
-def sum(numbers, starting_value = 0)
-  total = starting_value
-
-  numbers.each do |number|
-    total += number
-  end
-
-  total
-end
-
-def hyphenate(words)
-  hyphenated_words = ""
-
-  words.each do |word|
-    if hyphenated_words.empty?
-      hyphenated_words += word
-    else
-      hyphenated_words += "-#{word}"
-    end
-  end
-
-  hyphenated_words
-end
+function sum(arrayNumbers, starting_value = 0){
+  let sum = 0;
+  for (let i = starting_value; i < arrayNumbers.length; i++ ){
+    sum += arrayNumbers[i];
+    }
+    return sum
+}
