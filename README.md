@@ -76,7 +76,7 @@ In the file `filter.js` we have a few methods that filter an array.  The methods
 ### Release 2:  Преобразование элементов в коллекцию
 Another common task is transforming items into something based on the items.  If we have an array of phone numbers, we might want to transform each of the numbers into its area code.  If we have a list of social security numbers, we might want to transform each of them into its last four digits.
 
-Ruby provides the [`#map`][javascript map] method to help with this task.  The method returns a new array.  The new array contains the transformed version of each of the original items.  The block passed to the method describes how to perform the transformation.  See Figure 4 for examples.
+JavaScript provides the [`#map`][javascript map] method to help with this task.  The method returns a new array.  The new array contains the transformed version of each of the original items.  The block passed to the method describes how to perform the transformation.  See Figure 4 for examples.
 
 ```javascript
 numbers = [1, 4, 7, 3, 9]
@@ -98,7 +98,7 @@ In the file `transform.js` we have a few methods that transform items in an arra
 ### Release 3:  Агрегатирование элементов в коллекции
 The final task we'll explore is aggregating the items in a collection.  In other words, using the items to build an object or value.  If we had an array of prices, we could aggregate them into their total.  If we had an array of strings, we could aggregate them into one large string.  
 
-One aggregating method that Ruby provides is [`.reduce`][javascript reduce].  There are different ways to call `.reduce`.  One way is to pass in the starting point for the object that will be built up.  So, if we're going to sum an array of numbers, we might pass in zero as the starting value.  This value is often referred to as the *memo*.  We also pass a block.  Our block will need to take two arguments.  When the block is run for each item in the collection, both the item and the memo are passed to the block.  See Figure 5 for examples.
+One aggregating method that JavaScript provides is [`.reduce`][javascript reduce].  There are different ways to call `.reduce`.  One way is to pass in the starting point for the object that will be built up.  So, if we're going to sum an array of numbers, we might pass in zero as the starting value.  This value is often referred to as the *memo*.  We also pass a block.  Our block will need to take two arguments.  When the block is run for each item in the collection, both the item and the memo are passed to the block.  See Figure 5 for examples.
 
 ```javascript
 numbers = [1, 3, 6, 3, 9]
