@@ -1,4 +1,4 @@
-# Ruby Drill: Enumerable Methods
+# Java Drill: Enumerable Methods
 
 ## Summary
 When programming we often work with collections of objects: an array of phone numbers, a list of names, a set of GPS coordinates, etc.
