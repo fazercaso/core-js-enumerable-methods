@@ -68,7 +68,7 @@ numbers.filter(function(number){ return number < 5 })
 numbers.filter(function(number){ return number % 2 == 0 })
 => [8, 2]
 ```
-* Рисунок 3 *. Фильтрация массива.
+*Рисунок 3*. Фильтрация массива.
 
 В файле `filter.js` у нас есть метод, который фильтрует массив. Выполните рефакторинг методов используя `filter`.
 
