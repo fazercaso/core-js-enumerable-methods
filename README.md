@@ -47,11 +47,11 @@ phoneNumbers.forEach(function(number) {
 
 
 ```javascript
-numbers = [1, 2, 4, 5, 3, 9]
+let numbers = [1, 2, 4, 5, 3, 9]
 
 numbers.find(function(number){ return number > 4 })
 => 5
-nubmers.find(function(number){ return number % 2 === 0 })
+numbers.find(function(number){ return number % 2 === 0 })
 => 2
 ```
 Рисунок 2. Поиск элемента в массиве.
@@ -67,7 +67,7 @@ nubmers.find(function(number){ return number % 2 === 0 })
 `.filter()` - это метод JavaScript, который помогает нам фильтровать массив. `.filter()` возвращает новый массив, содержащий элементы, для которых фильтр вернул истинное значение. См. Рис. 3 в качестве примера.
 
 ```javascript
-numbers = [1, 5, 3, 8, 2]
+let numbers = [1, 5, 3, 8, 2]
 
 numbers.filter(function(number){ return number < 5 })
 => [1, 3, 2]
@@ -86,7 +86,7 @@ numbers.filter(function(number){ return number % 2 === 0 })
 
 
 ```javascript
-numbers = [1, 4, 7, 3, 9]
+let numbers = [1, 4, 7, 3, 9]
 
 numbers.map(function(number){ number ** 3 })
 # => [1, 64, 343, 27, 729]
@@ -110,7 +110,7 @@ numbers.map(function(number){ Math.sqrt(number) })
 
 
 ```javascript
-numbers = [1, 3, 6, 3, 9]
+let numbers = [1, 3, 6, 3, 9]
 
 numbers.reduce(function(sum, number) { return sum + number }, 0)
 # => 22
