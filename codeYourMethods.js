@@ -1,4 +1,4 @@
-function myForEach{
+function myForEach() {
 
 }
 
