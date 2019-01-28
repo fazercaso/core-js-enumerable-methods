@@ -1,10 +1,9 @@
 function exclamations(strings){
-  let loud_strings = []
-
-  for (var i = 0; i < strings.length; i++) {
-  loud_strings.push(array[i].toUpperCase() + '!')
+  let loudStrings = []
+  for (let i = 0; i < strings.length; i++) {
+  loudStrings.push(array[i].toUpperCase() + '!')
   }
-  return loud_strings
+  return loudStrings
 }
 
 function squareAll(numbers){
