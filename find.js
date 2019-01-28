@@ -7,7 +7,7 @@ function firstUnder(numbers, limit){
 
 function startsWith(strings, letter){
   for (let i = 0; i < strings.length; i++) {
-    if (strings[i][0] == letter)
+    if (strings[i][0] === letter)
     return strings[i]
   }
 }
