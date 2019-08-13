@@ -39,9 +39,9 @@ phoneNumbers.forEach(function(number) {
 let numbers = [1, 2, 4, 5, 3, 9];
 
 numbers.find(function(number){ return number > 4 });
-=> 5
+# => 5
 numbers.find(function(number){ return number % 2 === 0 });
-=> 2
+# => 2
 ```
 *Поиск элемента в массиве*
 
@@ -59,9 +59,9 @@ numbers.find(function(number){ return number % 2 === 0 });
 let numbers = [1, 5, 3, 8, 2];
 
 numbers.filter(function(number){ return number < 5 });
-=> [1, 3, 2]
+# => [1, 3, 2]
 numbers.filter(function(number){ return number % 2 === 0 });
-=> [8, 2]
+# => [8, 2]
 ```
 *Фильтрация массива*
 
@@ -104,7 +104,7 @@ numbers.reduce(function(sum, number) { return sum + number }, 0);
 numbers.reduce(function(sum, number) { return sum + number }, 100);
 # => 122
 numbers.reduce(function(digits, number) { return digits + number.to_s }, "Digits: ");
-#=> "Digits: 13639"
+# => "Digits: 13639"
 numbers.reduce(function(counts, number) {
 	counts[number] += 1;
 	return counts;
