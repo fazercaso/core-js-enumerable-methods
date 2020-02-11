@@ -1,7 +1,7 @@
 function exclamations(strings){
   let loudStrings = []
   for (let i = 0; i < strings.length; i++) {
-  loudStrings.push(array[i].toUpperCase() + '!')
+  loudStrings.push(strings[i].toUpperCase() + '!')
   }
   return loudStrings
 }
