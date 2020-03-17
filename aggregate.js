@@ -1,7 +1,6 @@
-function sum(arrayNumbers, starting_value = 0){
-  let sum = 0;
-  for (let i = starting_value; i < arrayNumbers.length; i++ ){
+function sum(arrayNumbers, sum = 0){
+  for (let i = 0; i < arrayNumbers.length; i++ ){
     sum += arrayNumbers[i];
-    }
-    return sum
+  }
+  return sum
 }
