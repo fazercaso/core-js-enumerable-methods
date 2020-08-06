@@ -14,7 +14,7 @@ let phoneNumbers = ["+14195558916", "+14195557849", "+14195559789"];
 
 phoneNumbers.forEach(function(number) {
   sendText(number, "Come to Elbrus-Bootcamp!");
-}
+})
 ```
 *Итерация через массив номеров телефона, и проведение операции с каждым номером*
 
