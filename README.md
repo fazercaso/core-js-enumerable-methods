@@ -1,8 +1,8 @@
-## Методы по работе с массивами
+##Array methods
 
-Во время программирования мы часто работаем с коллекциями объектов: массивом телефонных номеров, списком имен, набором GPS-координат и т.д.
+During development, we often work with collections of objects: an array of phone numbers, a list of names, a set of GPS coordinates, etc.
 
-При работе с коллекциями объектов некоторые задачи являются очень распространенными. Например, мы часто перебираем массив, выполняя какие-нибудь операции с каждым элементом. Например, работая с массивом телефонных номеров, мы можем отправить текстовое сообщение на каждый номер телефона (см. код ниже).
+When we work with collections of objects, some operations are very common. For example, we often go through an array with performing some kind of operation on each element. For example, working with an array of phone numbers, we can send a text message to each phone number (see code below).
 
 ```javascript
 function sendText(number, message) {
@@ -10,32 +10,32 @@ function sendText(number, message) {
 }
 
 
-let phoneNumbers = ["+14195558916", "+14195557849", "+14195559789"];
+let phoneNumbers = ["+14195558916", "+14195557849", "+14195559789"]
 
 phoneNumbers.forEach(function(number) {
-  sendText(number, "Come to Elbrus-Bootcamp!");
+  sendText(number, "Come to Elbrus-Bootcamp!)
 })
 ```
-*Итерация через массив номеров телефона, и проведение операции с каждым номером*
+*Iterate through an array of phone numbers, and perform an operation on each number*
 
-Итерация массива является одной из общих задач при работе с коллекцией. Какие ещё задачи должны выполняться? Часто нам требуется вытащить один или несколько предметов из массива. Иногда может понадобиться найти определенный элемент, например, телефонный номер, заканчивающийся на 8916. Или необходимо выбрать подмножество элементов, например: все номера телефонов с кодом города 495.
+Array iteration is one of the common tasks when working with a collection. What other tasks need to be performed? Often we need to pull one or more items from an array. Sometimes we may need to find a particular item, such as a phone number ending in 8916. Or we need to select a subset of items, for example: all phone numbers with a 495 area code.
 
 
-## Перебирающие методы
+## Searching methods.
 
-Работа с коллекциями объектов настолько распространена, что JavaScript и многие другие языки предоставляют для этого специальные методы. Общий метод перебора - `.forEach()`, который мы используем, когда хотим сделать какое-то действие с каждым элементом массива. Чтобы использовать `.forEach()`, надо вызвать этот метод массива и передать в него функцию, которая определяет, что мы хотим сделать для каждого элемента массива. Код выше является примером использования `.forEach()`.
+Working with collections of objects is so common that JavaScript and many other languages provide special methods for doing this. A common enumeration method is `.forEach()`, which we use when we want to do something with each element of an array. To use `.forEach()`, we need to call this array method and pass a function that defines what we want to do with each element of the array. The code above is an example of using `.forEach()`.
 
-Метод `.forEach()` - очень мощный инструмент, и ты можешь использовать его для достижения почти любых целей при работе с массивом. Однако JavaScript также предоставляет методы, созданные специально для выполнения рядовых задач. Использование этих методов обычно позволяет сделать код более кратким и понятным.
+The `.forEach()` method is a very powerful tool, and you can use it to achieve almost any goal when working with an array. However, JavaScript also provides methods designed specifically to accomplish ordinary tasks. Using these methods usually makes your code shorter and clearer.
 
-### Release 0. Собственные  функции `map`, `filter`, `reduce`, `forEach`, `every`, `some`, `find` 
+### Release 0. Own functions `map`, `filter`, `reduce`, `forEach`, `every`, `some`, `find` 
 
-Напиши собственные функции, которые выполняют то же самое, что и функции `map`, `filter`, `reduce`, `forEach`, `every`, `some`, `find`.
-Открой файл `codeYourMethods.js` и реализуй свой способ выполнения вышеуказанных функций.
+Write your own functions that do the same thing as the functions `map`, `filter`, `reduce`, `forEach`, `every`, `some`, `find`.
+Open the file `codeYourMethods.js` and implement your own way of doing the above functions.
 
-Подумай, как пользователь будет использовать твои функции. Обрати внимание на комментарии в конце файла.
+Think about how the user will use your functions. Notice the comments at the end of the file.
 
-### Release 1. Поиск элемента в массиве
-Как было упомянуто выше, одной из задач при работе с массивом является поиск определенного элемента: например, найти номер телефона, заканчивающийся на 8916, найти кандидата на работу с идентификатором 353687559 и т.д. Чтобы помочь тебе выполнить задачу для поиска элемента в массиве, есть метод [`.find`](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/find). Примеры использования `.find` можно увидеть в коде ниже.
+### Release 1. Finding an element in an array
+As mentioned above, one of the tasks when working with an array is to find a specific element: for example, find a phone number ending in 8916, find a job candidate with ID 353687559, etc. To help you with accomplishing such tasks as finding an element in an array, there is a method [`.find`](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/find). Examples of using `.find' can be seen in the code below.
 
 ```javascript
 let numbers = [1, 2, 4, 5, 3, 9];
@@ -50,17 +50,17 @@ numbers.find(function(number) {
 });
 // => 2
 ```
-*Поиск элемента в массиве*
+*Search for an element in an array*
 
-В файле `find.js` у тебя есть несколько функций, которые находят элемент в массиве. Перепиши функции с использованием `.find()`.
+In the file `find.js`, here are several functions that do searching an element in the array. Rewrite the functions using `.find()`.
 
-### Release 2. Фильтрация массива
+### Release 2. Filtering an array
 
-Иногда надо найти несколько элементов в массиве. Например, все предметы, соответствующие или несоответствующие условиям. Мы можем найти все номера телефонов с кодом города 495, найти всех кандидатов на работу, которые не заполнили заявку целиком, и т.д.
+Sometimes you need to find several elements in an array. For example, all items matching or not matching  the given conditions. We can find all phone numbers with a 495 area code, find all job candidates who didn't fill out the entire application, etc.
 
-Этот процесс часто называют фильтрацией. Для начала мы создаем фильтр, который описывает, как мы будем принимать решение по поводу того, какие элементы нас интересуют. Затем мы пропускаем каждый элемент в массиве через фильтр. Когда мы пройдем все элементы, мы получим новый массив, который состоит из прошедших через фильтр элементов.
+This process is often called filtering. First, we create a filter that describes how we will decide which items we are interested in. Then we pass each element to the array through the filter. When we pass all the elements, we get a new array that consists of the elements that have been passed through the filter.
 
-`.filter()` - это метод JavaScript, который помогает нам фильтровать массив. `.filter()` возвращает новый массив, содержащий элементы, для которых фильтр вернул истинное значение.
+`.filter()` is a JavaScript method that helps us filter the array. ``.filter()`` returns a new array containing the elements for which the filter returned a true value.
 
 ```javascript
 let numbers = [1, 5, 3, 8, 2];
@@ -74,15 +74,15 @@ numbers.filter(function(number) {
 });
 // => [8, 2]
 ```
-*Фильтрация массива*
+*Filtering the array*
 
-В файле `filter.js` у тебя есть функция, которая фильтрует массив. Перепиши, используя `.filter()`.
+In the file `filter.js`, you have a function that filters an array. Rewrite it using `.filter()`.
 
-### Release 3. Преобразование элементов массива
+### Release 3. Transforming array elements.
 
-Другой общей задачей является преобразование элементов массива. Если у нас есть массив телефонных номеров, то мы можем преобразовать каждый номер в код области/региона. Если у нас есть список номеров социального обеспечения, то мы можем преобразовать каждый из них в их последние четыре цифры.
+Another common task is to convert the elements of an array. If we have an array of phone numbers, we can convert each number to an area/region code. If we have a list of Social Security numbers, we can convert each one to their last four digits.
 
-Для решения этой задачи есть метод `.map()`. Метод возвращает новый массив. Новый массив содержит преобразованную версию каждого из исходных элементов. функция, переданная методу, описывает как выполнить преобразование.
+There is a method `.map()` to solve this problem. The method returns a new array. The new array contains the converted version of each of the original elements.The function passed to the method describes how to perform the conversion.
 
 ```javascript
 let numbers = [1, 4, 7, 3, 9];
@@ -102,16 +102,16 @@ numbers.map(function(number) {
 });
 // => [1.0, 2.0, 2.6457513110645907, 1.7320508075688772, 3.0]
 ```
-*Отображение массива*
+*Displaying an array*
 
-В файле `transform.js` содержится несколько функций. Перепиши их, используя `.map()`.
+The `transform.js' file contains several functions. Rewrite them using `.map()`.
 
 
-### Release 4. Агрегатирование элементов в массиве
+### Release 4. Aggregating elements in an array
 
-Еще задача, которую мы рассмотрим - привидение элементов массива к одному значению. Другими словами, использование элементов для построения объекта или значения. Если бы у нас был, например, массив цен продуктов, то мы могли бы объединить их в стоимость покупки. Аналогичным образом, если бы у нас был массив строк, то мы могли бы объединить их в одну большую строку.
+One more task we are going to review is aggregating the elements of an array to the same value. In other words, we need to build an object or value, using the elements. If we had, for example, an array of product prices, we could aggregate them into a purchase price. Similarly, if we had an array of strings, we could combine them into one big string.
 
-JavaScript предоставляет `.reduce()`. `.reduce()` принимает на вход функцию-callback и начальное значение аккумулятора (переменная, хранящая промежуточные значения результата). Функция принимает два аргумента (`accumulator, currentItem`), то есть `accumulator` тут - это предыдущий результат выполнения функции. Перейдем к примерам и все станет понятнее: 
+JavaScript provides `.reduce()` method. `.reduce()` takes a function-callback and an initial accumulator value (a variable storing intermediate values of the result) as input. The function takes two arguments (`accumulator, currentItem`), so `accumulator` here is the previous result of the function. Let's go to examples and everything will become clearer: 
 
 ```javascript
 let numbers = [1, 3, 6, 3, 9];
@@ -137,17 +137,17 @@ numbers.reduce(function(counts, number) {
 }, {});
 // => 
 // {
-//   '1': 1, 
-//   '3': 2, 
-//   '6': 1, 
-//   '9': 1
+// '1': 1, 
+// '3': 2, 
+// '6': 1, 
+// '9': 1
 // }
 ```
-*Агрегатирование значений в массиве*
+*Agggregating values in an array*
 
-В файле `aggregate.js` ты располагаешь несколькими функциями, которые объединяют значения в массиве. Проведи рефакторинг (реорганизацию) функций используя `.reduce()`.
+In the file `aggregate.js`, you have several functions that aggregate values in an array. Refactor (reorganize) the functions using `.reduce()`.
 
 
 [MDN Array]:(https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
-[Перебирающие методы]:(https://learn.javascript.ru/array-iteration)
+[Enumerating methods]:(https://learn.javascript.ru/array-iteration) (rus)
 
