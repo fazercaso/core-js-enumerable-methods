@@ -1,4 +1,4 @@
-##Array methods
+## Array methods
 
 During development, we often work with collections of objects: an array of phone numbers, a list of names, a set of GPS coordinates, etc.
 
