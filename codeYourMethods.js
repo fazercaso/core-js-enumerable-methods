@@ -1,7 +1,7 @@
 
 // Работать это должно вот так:
 // myForEach([1,2,3], (el) => console.log(el));
-// myMap([1,2,3], (el) => el * 2);
+// const newArr = myMap([1,2,3], (el) => el * 2);
 
 
 function myForEach() {
