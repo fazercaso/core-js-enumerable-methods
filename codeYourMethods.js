@@ -16,10 +16,6 @@ function myFilter() {
 
 }
 
-function myReduce() {
-
-}
-
 function myFind() {
 
 }
@@ -32,3 +28,6 @@ function mySome() {
 
 }
 
+function myReduce() {
+
+}
