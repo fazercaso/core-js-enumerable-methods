@@ -6,6 +6,8 @@ function exclamations(strings){
   return loudStrings
 }
 
+const exc = strings.map((el) => el.toUpperCase() + '!')
+
 function squareAll(numbers){
   let squares = []
   for (let i = 0; i < numbers.length; i++) {
@@ -14,6 +16,8 @@ function squareAll(numbers){
   return squares
 }
 
+const square = numbers.map((el) => el ** 2)
+
 function firstLetters(words){
   let letters = []
   for (let i = 0; i < words.length; i++) {
@@ -21,3 +25,5 @@ function firstLetters(words){
   }
   return letters
 }
+
+const first = words.map((el) => el[0])

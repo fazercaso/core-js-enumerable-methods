@@ -8,6 +8,8 @@ function oddNumbers(nums) {
   return odds
 }
 
+const odd = nums.filter((el) => el % 2 === 1)
+
 
 function longStrings(strings, minimumLength = 0){
   let longs = []
@@ -17,3 +19,5 @@ function longStrings(strings, minimumLength = 0){
   }
   return longs
 }
+
+const long = strings.filter((el, minimumLength = 0) => el.length >= minimumLength)
